@@ -1,0 +1,128 @@
+/*
+Theme Name: Helsingborg intranet
+Theme URI: 
+Author: Kristian Erendi
+Author URI: http://reptilo.se/
+Date: 2013-12-20
+Description: The theme is custom made for the Helsingborg intranet. It is based on Bootstrap 3.0.3, http://getbootstrap.com/
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: bootstrap
+Text Domain: hbg
+*/
+
+/*** Start up with importing the compiled bootstrap css ***/
+@import url("./css/bootstrap.css");
+
+
+/*** Theme customizations ***/
+body {padding-top: 60px;}
+body.logged-in .navbar{margin-top: 30px;}
+.top-buffer { margin-top:20px;}
+
+
+/**** Top ***/
+#hbg-top {
+  background-color: lightblue;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:100;
+  height: 45px;
+}
+body.admin-bar #hbg-top{top:32px;}
+#hbg-top-text{float:right;color:#fff;}
+
+/*** Nav **/
+.navbar-collapse{float:left;}
+#hbg-search{float:right;}
+
+
+
+
+/** frontpage **/
+#hbg-search-large{text-align: center;}
+#puff-container{margin-top: 30px;}
+.puff{
+  background-color:#fff;
+  border:solid lightgrey 1px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  padding:3%;
+}
+.puff img{width:100%;margin-bottom:20px;}
+
+
+
+.breadcrumb {background-color: transparent;padding-left:0;}
+
+
+/*** ???? ***/
+.box {
+  margin-left: 0;
+  margin-right: 0;
+  background-color: #FFF;
+  border-width: 1px;
+  border-color: #DDD;
+  border-radius: 4px 4px 0 0;
+  box-shadow: none;
+}
+
+
+.starter-template {padding: 40px 15px;text-align: center;}
+
+.well {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid #E3E3E3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+
+
+
+
+/*** footer ***/
+#hbg-footer-container{margin-top: 30px; }
+#hbg-footer{
+  text-align:center;  
+  height:250px;
+  background-image: url("img/hbg_footer.png");
+  background-repeat: no-repeat;
+  background-position:center bottom;
+}
+
+
+
+.post-edit-link {
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: normal;
+line-height: 1.428571429;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+cursor: pointer;
+background-image: none;
+border: 1px solid rgba(0, 0, 0, 0);
+border-radius: 4px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+color: #FFF;
+background-color: #F0AD4E;
+border-color: #EEA236;
+
+}
+
