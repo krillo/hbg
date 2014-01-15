@@ -11,6 +11,38 @@
 
 
 
+
+add_action('wp_enqueue_scripts', 'reptilo_scripts');
+
+/**
+ * Enqueue some java scripts, only on front page
+ * 
+ * Author: Kristian Erendi 
+ * URI: http://reptilo.se 
+ * Date: 2013-10-22
+ */
+function reptilo_scripts() {
+  wp_register_style('font_awesome', get_bloginfo('stylesheet_directory') . '/fonts/font-awesome/css/font-awesome.min.css', array(), '20120208', 'all');
+  wp_enqueue_style('font_awesome');  
+
+
+  
+  //wp_register_style('custom-style', 'http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css', array(), '20120208', 'all');
+  //wp_enqueue_style('custom-style');
+  //wp_register_style('feedback_form', get_bloginfo('stylesheet_directory') . '/hbg/feedback/form.css', array(), '20120208', 'all');
+  //wp_enqueue_style('feedback_form');
+//wp_register_style('feedback_window', get_bloginfo('stylesheet_directory') . '/hbg/feedback/window.css', array(), '20120208', 'all');
+//wp_enqueue_style('feedback_window');
+
+
+  //wp_register_style('hbg.css', get_bloginfo('stylesheet_directory') . '/hbg/css/hbg.css', array(), '20120208', 'all');
+  //wp_enqueue_style('hbg.css');
+  //wp_enqueue_script('jquery-ui', 'http://code.jquery.com/ui/1.10.3/jquery-ui.js', array('jquery'));
+  //wp_enqueue_script('jquery.placeholder', get_bloginfo('stylesheet_directory') . '/hbg/js/jquery.placeholder.js', array('jquery'));
+}
+
+
+        
 function printPostsPerCat($category = 'aktuellt', $nbr = 1) {
   global $post;
   $args = array('category_name' => $category, 'posts_per_page' => $nbr);

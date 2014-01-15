@@ -1,4 +1,5 @@
-<?php get_header(); ?>
+<?php get_header();
+?>
 <div class="container">
   <?php if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs();?>
   <?php
@@ -10,6 +11,7 @@
             <h1><?php the_title(); ?></h1>
             <?php the_content(); ?>
             <?php edit_post_link(); ?>
+            <i class="fa fa-lightbulb-o fa-3x"></i> fa-camera-retro
           </article>
         </div>  
       </div>  

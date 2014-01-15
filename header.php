@@ -23,6 +23,13 @@
     <link href="/css/custom.css" rel="stylesheet"-->
     <!--link href="/css/grid.css" rel="stylesheet"-->
 
+    
+    
+    
+    
+    
+    
+    
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -31,11 +38,15 @@
     <?php wp_head(); ?>
   </head>
 
-  <body <?php body_class(); ?> > 
+  <body <?php body_class(); ?> >
+    <?php include_once "bin/reptilo_overlay_feedback.php"; ?>
     <div id="hbg-top">
       <div class="container">
         <div id="hbg-top-text">
-          Skicka in dina synpunkter och kommentarer
+          <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Skicka in dina synpunkter och kommentarer
+</button>
+
         </div>
       </div>
     </div>

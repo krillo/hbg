@@ -14,6 +14,7 @@ Text Domain: hbg
 
 /*** Start up with importing the compiled bootstrap css ***/
 @import url("./css/bootstrap.css");
+@import url("./css/reptilo_overlay_feedback.css");
 
 
 /*** Theme customizations ***/

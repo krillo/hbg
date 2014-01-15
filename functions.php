@@ -186,6 +186,7 @@ register_nav_menus( array(
 ) );
 
 include "bin/reptilo_utils.php";
+include_once "hbg/functions_hbg.php";
 include "bin/dimox_bootstrap_breadcrumbs.php";
 require_once "bin/wp-bootstrap-navwalker.php";
 
