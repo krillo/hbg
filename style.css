@@ -8,13 +8,12 @@ Description: The theme is custom made for the Helsingborg intranet. It is based 
 Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: bootstrap
+Tags: Bootstrap 3
 Text Domain: hbg
 */
 
 /*** Start up with importing the compiled bootstrap css ***/
-@import url("./css/bootstrap.css");
-@import url("./css/reptilo_overlay_feedback.css");
+@import url("./css/bootstrap.min.css?ver=3.0.3");
 
 
 /*** Theme customizations ***/

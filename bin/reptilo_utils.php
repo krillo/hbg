@@ -16,25 +16,14 @@ add_action('wp_enqueue_scripts', 'reptilo_scripts');
 
 /**
  * Enqueue some java scripts, only on front page
- * 
- * Author: Kristian Erendi 
- * URI: http://reptilo.se 
- * Date: 2013-10-22
  */
 function reptilo_scripts() {
-  wp_register_style('font_awesome', get_bloginfo('stylesheet_directory') . '/fonts/font-awesome/css/font-awesome.min.css', array(), '20120208', 'all');
-  wp_enqueue_style('font_awesome');  
-
-
-  
   //wp_register_style('custom-style', 'http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css', array(), '20120208', 'all');
   //wp_enqueue_style('custom-style');
   //wp_register_style('feedback_form', get_bloginfo('stylesheet_directory') . '/hbg/feedback/form.css', array(), '20120208', 'all');
   //wp_enqueue_style('feedback_form');
 //wp_register_style('feedback_window', get_bloginfo('stylesheet_directory') . '/hbg/feedback/window.css', array(), '20120208', 'all');
 //wp_enqueue_style('feedback_window');
-
-
   //wp_register_style('hbg.css', get_bloginfo('stylesheet_directory') . '/hbg/css/hbg.css', array(), '20120208', 'all');
   //wp_enqueue_style('hbg.css');
   //wp_enqueue_script('jquery-ui', 'http://code.jquery.com/ui/1.10.3/jquery-ui.js', array('jquery'));
@@ -42,7 +31,15 @@ function reptilo_scripts() {
 }
 
 
-        
+
+/**
+ * Display posts from a category.
+ * Bootstrap 3 style
+ * 
+ * @global type $post
+ * @param type $category  - the slug
+ * @param type $nbr - nbr of posts to show
+ */
 function printPostsPerCat($category = 'aktuellt', $nbr = 1) {
   global $post;
   $args = array('category_name' => $category, 'posts_per_page' => $nbr);
@@ -67,3 +64,83 @@ RB;
   wp_reset_query();
   echo $readingbox;
 }
+
+
+
+/**** Reptilo feedback callback function ****/
+add_action('wp_ajax_rep_feedback', 'rep_feedback_callback');
+add_action('wp_ajax_nopriv_rep_feedback', 'rep_feedback_callback');
+
+function rep_feedback_callback() {
+  !empty($_REQUEST['pagename']) ? $pagename = addslashes($_REQUEST['pagename']) : $pagename = '';
+  !empty($_REQUEST['guid']) ? $guid = addslashes($_REQUEST['guid']) : $guid = '';
+  !empty($_REQUEST['type']) ? $type = addslashes($_REQUEST['type']) : $type = '';
+  !empty($_REQUEST['msg']) ? $msg = addslashes($_REQUEST['msg']) : $msg = '';
+  !empty($_REQUEST['email']) ? $email = addslashes($_REQUEST['email']) : $email = '';
+//!empty($_REQUEST['to_email']) ? $to_email = addslashes($_REQUEST['to_email']) : $to_email = 'hravdelningen@helsingborg.se';
+  !empty($_REQUEST['to_email']) ? $to_email = addslashes($_REQUEST['to_email']) : $to_email = 'krillo@gmail.com';
+
+  $subject = "Feedback på intranätet";
+  $message = <<<MSG
+Feedback
+
+Sidanamn: $pagename
+Länk: $guid
+Typ: $type
+Email: $email
+          
+  
+$msg
+
+MSG;
+  
+  $success = wp_mail($to_email, $subject, $message);
+  $response = json_encode(array('success' => $success, 'guid' => $guid));
+  header('Cache-Control: no-cache, must-revalidate');
+  header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
+  header('Content-type: application/json');
+  echo $response;
+  die(); // this is required to return a proper result
+}
+
+
+
+
+/**
+ * Custom post type - FAQ 
+ */
+function create_faq() {
+  $labels = array(
+      'name' => 'FAQ',
+      'singular_name' => 'FAQ',
+      'add_new' => 'Lägg till ny FAQ',
+      'add_new_item' => 'Lägg till ny FAQ',
+      'edit_item' => 'Redigera FAQ',
+      'new_item' => 'Ny FAQ',
+      'all_items' => 'Alla FAQn',
+      'view_item' => 'Visa FAQ',
+      'search_items' => 'Sök FAQ',
+      'not_found' => 'Inga FAQn hittade',
+      'not_found_in_trash' => 'Inga FAQn hittade i soptunnan',
+      'parent_item_colon' => '',
+      'menu_name' => 'FAQ'
+  );
+
+  $args = array(
+      'labels' => $labels,
+      'public' => true,
+      'publicly_queryable' => true,
+      'show_ui' => true,
+      'show_in_menu' => true,
+      'query_var' => true,
+      'rewrite' => array('slug' => 'faq'),
+      'capability_type' => 'post',
+      'has_archive' => true,
+      'hierarchical' => false,
+      'menu_position' => null,
+      'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt') //, 'comments' )
+  );
+  register_post_type('faq', $args);
+}
+
+add_action('init', 'create_faq');

@@ -1,27 +1,12 @@
 <?php
 /**
- * Twenty Thirteen functions and definitions.
- *
- * Sets up the theme and provides some helper functions, which are used in the
- * theme as custom template tags. Others are attached to action and filter
- * hooks in WordPress to change core functionality.
- *
- * When using a child theme (see http://codex.wordpress.org/Theme_Development
- * and http://codex.wordpress.org/Child_Themes), you can override certain
- * functions (those wrapped in a function_exists() call) by defining them first
- * in your child theme's functions.php file. The child theme's functions.php
- * file is included before the parent theme's file, so the child theme
- * functions would be used.
- *
- * Functions that are not pluggable (not wrapped in function_exists()) are
- * instead attached to a filter or action hook.
- *
- * For more information on hooks, actions, and filters,
- * see http://codex.wordpress.org/Plugin_API
- *
+ * Helsingborg intranet
+ * Author: Kristian Erendi
+ * Author URI: http://reptilo.se/
+ * Date: 2013-12-20
  * @package WordPress
- * @subpackage Twenty_Thirteen
- * @since Twenty Thirteen 1.0
+ * @subpackage Hbg
+ * @since Hbg 1.0
  */
 
 
@@ -34,13 +19,16 @@
  * @return void
  */
 function hbg_scripts_styles() {
-	// Adds JavaScript to pages with the comment form to support sites with
-	// threaded comments (when in use).
+	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), '2013-12-20', true );
+	wp_enqueue_style( 'hbg-style', get_stylesheet_uri(), array(), '2013-12-20' );
+  wp_register_style('font_awesome', get_bloginfo('stylesheet_directory') . '/fonts/font-awesome/css/font-awesome.min.css', array(), '20120208', 'all');
+  wp_enqueue_style('font_awesome');  
+
+
+  // Adds JavaScript to pages with the comment form to support sites with threaded comments (when in use).
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ){
 		wp_enqueue_script( 'comment-reply' );
   }
-	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array( 'jquery' ), '2013-12-20', true );
-	wp_enqueue_style( 'hbg-style', get_stylesheet_uri(), array(), '2013-12-20' );
 }
 add_action( 'wp_enqueue_scripts', 'hbg_scripts_styles' );
 
@@ -53,7 +41,6 @@ if ( ! function_exists( 'twentythirteen_paging_nav' ) ) :
  */
 function twentythirteen_paging_nav() {
 	global $wp_query;
-
 	// Don't print empty markup if there's only one page.
 	if ( $wp_query->max_num_pages < 2 )
 		return;
@@ -79,11 +66,9 @@ endif;
 if ( ! function_exists( 'twentythirteen_post_nav' ) ) :
 /**
  * Displays navigation to next/previous post when applicable.
-*
-* @since Twenty Thirteen 1.0
-*
-* @return void
-*/
+ * @since Twenty Thirteen 1.0
+ * @return void
+ */
 function twentythirteen_post_nav() {
 	global $post;
 
@@ -139,45 +124,7 @@ add_filter( 'body_class', 'twentythirteen_body_class' );
 
 
 
-/**
- * The post type Fyndhyllan 
- * 
- */
-function create_faq() {
-  $labels = array(
-      'name' => 'FAQ',
-      'singular_name' => 'FAQ',
-      'add_new' => 'Lägg till ny FAQ',
-      'add_new_item' => 'Lägg till ny FAQ',
-      'edit_item' => 'Redigera FAQ',
-      'new_item' => 'Ny FAQ',
-      'all_items' => 'Alla FAQn',
-      'view_item' => 'Visa FAQ',
-      'search_items' => 'Sök FAQ',
-      'not_found' => 'Inga FAQn hittade',
-      'not_found_in_trash' => 'Inga FAQn hittade i soptunnan',
-      'parent_item_colon' => '',
-      'menu_name' => 'FAQ'
-  );
 
-  $args = array(
-      'labels' => $labels,
-      'public' => true,
-      'publicly_queryable' => true,
-      'show_ui' => true,
-      'show_in_menu' => true,
-      'query_var' => true,
-      'rewrite' => array('slug' => 'faq'),
-      'capability_type' => 'post',
-      'has_archive' => true,
-      'hierarchical' => false,
-      'menu_position' => null,
-      'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt') //, 'comments' )
-  );
-  register_post_type('faq', $args);
-}
-
-add_action('init', 'create_faq');
 
 
 
@@ -185,9 +132,13 @@ register_nav_menus( array(
     'primary' => __( 'Primary Menu', 'huvudmeny' ),
 ) );
 
-include "bin/reptilo_utils.php";
-include_once "hbg/functions_hbg.php";
-include "bin/dimox_bootstrap_breadcrumbs.php";
+
+
+
+
+
+include_once "bin/reptilo_utils.php";
+include_once "bin/dimox_bootstrap_breadcrumbs.php";
 require_once "bin/wp-bootstrap-navwalker.php";
 
 

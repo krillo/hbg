@@ -18,10 +18,7 @@
     <meta name="author" content="">
     <!-- link rel="shortcut icon" href="http://getbootstrap.com/docs-assets/ico/favicon.png" -->
     <title><?php wp_title('|', true, 'right'); ?></title>
-    <!--link href="/css/bootstrap.css" rel="stylesheet">
-    <link href="/css/starter-template.css" rel="stylesheet">
-    <link href="/css/custom.css" rel="stylesheet"-->
-    <!--link href="/css/grid.css" rel="stylesheet"-->
+
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
