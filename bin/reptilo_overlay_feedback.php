@@ -113,7 +113,7 @@ $post = $wp_query->get_queried_object();
       $("#rep-feedback-type").val($(this).attr("data-type"));
     });
 
-    $('input, textarea').placeholder();
+    //$('input, textarea').placeholder();
 
   });
 </script> 

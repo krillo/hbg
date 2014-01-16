@@ -16,12 +16,10 @@ get_header();
       <div class="row">
         <div class="col-md-12">
           <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-            
             <h1><?php the_title(); ?></h1>
             <?php the_content(); ?>
-            <?php edit_post_link(); ?>
           </article>
-
+          <div class="clearfix"></div>
           <div class="row top-buffer">
             <div class="col-md-12">
               <!-- Nav tabs -->
