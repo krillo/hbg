@@ -37,7 +37,9 @@
     <div id="hbg-top">
       <div class="container">
         <div id="hbg-top-text">
+          <?php if (get_field('feedback')): ?>
           <a href="" class="" data-toggle="modal" data-target="#myModal">Skicka in dina synpunkter och kommentarer</a>
+          <?php endif; ?>
         </div>
       </div>
     </div>
