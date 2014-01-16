@@ -5,7 +5,7 @@
  *
  * @package WordPress
  * @subpackage Helsingborg intranet
- * @since 2013-12
+ * @since 2014-01
  */
 ?><!DOCTYPE html>
 <html lang="en">
