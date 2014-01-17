@@ -6,6 +6,11 @@
   if (have_posts()) : while (have_posts()) : the_post();
       ?>
       <div class="row">
+        <?php
+        if (get_field('notice')) {
+          include 'snippets/notice.php';
+        }
+        ?>
         <div class="col-md-12">
           <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <h1><?php the_title(); ?></h1>

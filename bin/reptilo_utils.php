@@ -32,6 +32,30 @@ function reptilo_scripts() {
 
 
 
+
+/**
+ * Shortcode for a tooltip
+ * Use like this: 
+ * [tooltip text="apa" tip="Vardagligt utryck för primater"]
+ * 
+ * This is not a standalone function, it has dependencies to:
+ * 1. bootstrap.min.js
+ * 2. reptilo.js for initialization 
+ */
+function rep_tooltip( $atts ) {
+	extract( shortcode_atts( array(
+		'text' => '',
+		'tip' => '',
+	), $atts ) );
+  return '<a href="#" data-toggle="tooltip" class="rep-tooltip" title="'.$tip.'" data-placement="top">'.$text.'</a>';
+}
+add_shortcode( 'tooltip', 'rep_tooltip' );
+
+
+
+
+
+
 /**
  * Display posts from a category.
  * Bootstrap 3 style

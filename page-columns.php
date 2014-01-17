@@ -5,6 +5,17 @@
  *
  * @author Kristian Erendi
  */
+//decide what number of columns to show and set the grids
+$grid = 0;
+if (get_field('rubrik2') != '') {
+  $grid = 6;  //two cols
+}
+if (get_field('rubrik3') != '') {
+  $grid = 4;  //three cols
+}
+if (get_field('rubrik4') != '') {
+  $grid = 3;  //four cols
+}
 get_header();
 ?>
 <div class="container">
@@ -18,89 +29,48 @@ get_header();
             <h1><?php the_title(); ?></h1>
             <?php the_content(); ?>
           </article>
-          <div class="clearfix"></div>
-          <div class="row top-buffer" id="column-container">
-            <div class="col-md-4 ">
-              <div class="column" id="col1">
-                <h2><i class="fa fa-rocket"></i> Spaceman oh</h2>
-                <p>
-                  Aenean lacinia bibendum nulla sed consectetur.Aenean lacinia bibendum nulla sed consectetur.Aenean lacinia bibendum nulla sed consectetur.Aenean lacinia bibendum nulla sed consectetur.Aenean lacinia bibendum nulla sed consectetur.Aenean lacinia bibendum nulla sed consectetur.
-                </p>
-                <a href="http://hbg.dev/?p=1665">Läs mer...</a>
-              </div>
-            </div>  
-            <div class="col-md-4 ">
-              <div class="column" id="col2">
-                <h2><i class="fa fa-rocket"></i> Spaceman oh I want to go into...</h2>
-                <p>
-                  Aenean lacinia bibendum nulla sed consectetur.Aenean lacinia bibendum nulla sed consectetur.Aenean lacinia bibendum nulla sed consectetur.Aenean lacinia bibendum nulla sed consectetur.Aenean lacinia bibendum nulla sed consectetur.Aenean lacinia bibendum.
-                </p>
-                <a href="http://hbg.dev/?p=1665">Läs mer...</a>
-              </div>
-            </div>  
-            <div class="col-md-4 ">
-              <div class="column" id="col3">
-                <h2><i class="fa fa-rocket"></i> Spaceman oh I want...</h2>
-                <p>
-                  Aenean lacinia bibendum nulla sed consectetur.Aenean lacinia bibendum nulla sed consectetur.Aenean lacinia bibendum nulla sed consectetur.Aenean lacinia bibendum nulla sed consectetur.Aenean lacinia bibendum nulla sed consectetur.Aenean lacinia bibendum nulla sedconsectetur consectetur..
-                </p>
-                <a href="http://hbg.dev/?p=1665">Läs mer...</a>
-              </div>
-            </div>  
-          </div>            
-
-
-
-
-
-
-
-
-
-
-
-
-          <div class="col-md-12">
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs">
-              <?php if (get_field('rubrik1')): ?><li  class="active"><a href="#tabs-1" data-toggle="tab"><?php the_field('rubrik1'); ?> <span class="glyphicon glyphicon-chevron-right"></span></a></li><?php endif; ?>
-              <?php if (get_field('rubrik2')): ?><li><a href="#tabs-2" data-toggle="tab"><?php the_field('rubrik2'); ?> <span class="glyphicon glyphicon-chevron-right"></span></a></li><?php endif; ?>
-              <?php if (get_field('rubrik3')): ?><li><a href="#tabs-3" data-toggle="tab"><?php the_field('rubrik3'); ?> <span class="glyphicon glyphicon-chevron-right"></span></a></li><?php endif; ?>
-              <?php if (get_field('rubrik4')): ?><li><a href="#tabs-4" data-toggle="tab"><?php the_field('rubrik4'); ?> <span class="glyphicon glyphicon-chevron-right"></span></a></li><?php endif; ?>
-              <?php if (get_field('rubrik5')): ?><li><a href="#tabs-5" data-toggle="tab"><?php the_field('rubrik5'); ?> <span class="glyphicon glyphicon-chevron-right"></span></a></li><?php endif; ?>                
-            </ul>
-            <!-- Tab panes -->
-            <div class="tab-content">
-              <?php if (get_field('rubrik1')): ?>
-                <div id="tabs-1" class="tab-pane fade in active">
-                  <p><?php the_field('text1'); ?></p>
-                </div>
-              <?php endif; ?>
-              <?php if (get_field('rubrik2')): ?>
-                <div id="tabs-2" class="tab-pane fade">
-                  <p><?php the_field('text2'); ?></p>
-                </div>
-              <?php endif; ?>
-              <?php if (get_field('rubrik3')): ?>
-                <div id="tabs-3" class="tab-pane fade">
-                  <p><?php the_field('text3'); ?></p>
-                </div>
-              <?php endif; ?>
-              <?php if (get_field('rubrik4')): ?>
-                <div id="tabs-4" class="tab-pane fade">
-                  <p><?php the_field('text4'); ?></p>
-                </div>
-              <?php endif; ?>
-              <?php if (get_field('rubrik5')): ?>
-                <div id="tabs-5" class="tab-pane fade">
-                  <p><?php the_field('text5'); ?></p>
-                </div>
-              <?php endif; ?>
-            </div>
-          </div>
         </div>
-
       </div>  
+      <?php if ($grid != 0): ?>
+        <div class="row top-buffer" id="column-container">
+          <?php if (get_field('rubrik1')): ?>
+            <div class="col-md-<?php echo $grid; ?>">
+              <div class="column" id="col1">
+                <h2><i class="fa fa-rocket"></i> <?php the_field('rubrik1'); ?></h2>
+                <p><?php the_field('text1'); ?></p>
+                <a href="<?php $post_obj = get_field('lank1'); echo $post_obj->guid;?>">Läs mer...</a>
+              </div>
+            </div>  
+          <?php endif; ?>
+          <?php if (get_field('rubrik2')): ?>
+            <div class="col-md-<?php echo $grid; ?>">
+              <div class="column" id="col2">
+                <h2><i class="fa fa-rocket"></i> <?php the_field('rubrik2'); ?></h2>
+                <p><?php the_field('text2'); ?></p>
+                <a href="<?php $post_obj = get_field('lank2'); echo $post_obj->guid;?>">Läs mer...</a>
+              </div>
+            </div>    
+          <?php endif; ?>
+          <?php if (get_field('rubrik3')): ?>
+            <div class="col-md-<?php echo $grid; ?>">
+              <div class="column" id="col3">
+                <h2><i class="fa fa-rocket"></i> <?php the_field('rubrik3'); ?></h2>
+                <p><?php the_field('text3'); ?></p>
+                <a href="<?php $post_obj = get_field('lank3'); echo $post_obj->guid;?>">Läs mer...</a>
+              </div>
+            </div>
+          <?php endif; ?>
+          <?php if (get_field('rubrik4')): ?>
+            <div class="col-md-<?php echo $grid; ?>">
+              <div class="column" id="col4">
+                <h2><i class="fa fa-rocket"></i> <?php the_field('rubrik4'); ?></h2>
+                <p><?php the_field('text4'); ?></p>
+                <a href="<?php $post_obj = get_field('lank4'); echo $post_obj->guid;?>">Läs mer...</a>
+              </div>
+            </div>
+          <?php endif; ?>
+        </div>
+      <?php endif; ?>
     </div>  
     <?php
   endwhile;

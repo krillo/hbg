@@ -98,17 +98,40 @@ body.admin-bar #hbg-top{top:32px;}
 .aligncenter {margin: 15px auto;}
 img {vertical-align: bottom;max-width: 100%;}
 article img, .tab-pane img{
-background-color: #FFF;
-border: solid lightgrey 1px;
--moz-border-radius: 4px;
--webkit-border-radius: 4px;
--khtml-border-radius: 4px;
-border-radius: 4px;
-padding: 4px;
+  background-color: #FFF;
+  border: solid lightgrey 1px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  border-radius: 4px;
+  padding: 4px;
+}
+article .wp-caption img, .tab-pane .wp-caption img{
+  background-color: #FFF;
+  border: none;
+  border-radius: none;
+  padding: 4px 0 0 0;
 }
 
-
-
+.wp-caption {
+  max-width: 100%;
+  width: 100%;
+  padding: 1px;
+  text-align: center;
+  background: #FFF;
+  border: solid lightgrey 1px;
+  border-radius: 3px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  border-radius: 4px;
+}
+.wp-caption-text {
+  margin: 0 0 0.3em;
+  padding: 0;
+  font: bold 11px/22px Arial, Helvetica, sans-serif;
+  text-align: center;
+}
 
 
 

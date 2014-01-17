@@ -16,6 +16,7 @@
  */
 function hbg_scripts_styles() {
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), '2013-12-20', true );
+	wp_enqueue_script( 'general', get_template_directory_uri() . '/js/reptilo.js', array( 'jquery' ), '2013-12-20', true );
 	wp_enqueue_style( 'hbg-style', get_stylesheet_uri(), array(), '2013-12-20' );
   wp_register_style('font_awesome', get_bloginfo('stylesheet_directory') . '/fonts/font-awesome/css/font-awesome.min.css', array(), '20120208', 'all');
   wp_enqueue_style('font_awesome');  
