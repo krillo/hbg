@@ -64,22 +64,21 @@ add_shortcode( 'tooltip', 'rep_tooltip' );
  * @param type $category  - the slug
  * @param type $nbr - nbr of posts to show
  */
-function printPostsPerCat($category = 'aktuellt', $nbr = 1) {
+function printPostsPerCat($category = 'aktuellt', $nbr = 1, $nbrDigits = 100) {
   global $post;
   $args = array('category_name' => $category, 'posts_per_page' => $nbr);
   $loop = new WP_Query($args);
   if ($loop->have_posts()):
     while ($loop->have_posts()) : $loop->the_post();
-      $content = get_the_content();
+      $content = mb_substr(get_the_content(), 0, $nbrDigits). '...';
       $title = get_the_title();
       $guid = get_the_guid();
       $readingbox .= <<<RB
-<div class="reading-box-container" id="reading-box-container-1">
-  <section class="reading-box tagline-shadow" style="background-color:#f6f6f6 !important;border-width:1px;border-color:#f6f6f6!important;border-left-width:3px !important;border-left-color:#d62a1e!important;border-style:solid;">
-    <a href="$guid" target="" class="continue button large darkgray">LÄS MER HÄR</a>
+<div class="cat-container">
+  <section>
     <h2>Aktuellt just nu: $title</h2>
-    <p> $content </p>
-    <a href="$guid" target="" class="continue mobile-button button large darkgray">LÄS MER HÄR</a>
+    <p>$content</p>
+    <a href="$guid" target="" class="btn btn-default btn-xs">Läs mer</a>
   </section>
 </div>
 RB;

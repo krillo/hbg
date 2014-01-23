@@ -29,6 +29,13 @@
   </head>
 
   <body <?php body_class(); ?> > 
+    <div id="hbg-top">
+      <div class="container">
+        <div id="hbg-top-text-department">
+          Välkomment till HR-avdelningen
+        </div>
+      </div>
+    </div>
 
     <div class="container">
       <div id="hbg-logo-area">

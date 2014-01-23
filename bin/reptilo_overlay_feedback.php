@@ -22,9 +22,11 @@ $post = $wp_query->get_queried_object();
 <style>
   .modal-dialog {width: 380px;}
   i{margin-right: 10px;}
+  #rep-feedback-title{color:#666;}
   .feedback-types-wrapper{height:50px;overflow: hidden;}
   .feedback-type{margin-right: 0;padding: 15px;float: left;}
   .feedback-type:hover{text-decoration: none;}
+  .feedback-type:visited{color: #666;}
   #rep-feedback-msg{width:340px;height:300px;height: 140px;margin-bottom: 10px;} 
   #rep-feedback-email{width:340px;margin-bottom: 10px;}
   #rep-feedback-submit{margin-bottom: 10px;}
@@ -53,7 +55,7 @@ $post = $wp_query->get_queried_object();
     }
 
     function show_error(msg) {
-      $("#rep-feedback-error").html(msg);
+      $("#rep-feedback-error-txt").html(msg);
       $("#rep-feedback-error").show('slow');
     }
 
@@ -127,7 +129,7 @@ $post = $wp_query->get_queried_object();
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Skicka din feedback</h4>
+        <h4 class="modal-title" id="rep-feedback-title">Skicka din feedback</h4>
       </div>
       <div class="modal-body">
         <input value="<?php echo $post->post_title; ?>" id='rep-feedback-pagename' name="pagename" type="hidden" />				
@@ -143,9 +145,10 @@ $post = $wp_query->get_queried_object();
         <textarea id="rep-feedback-msg"  name="description" placeholder="Din feedback" class="form-control"></textarea>
         <input id="rep-feedback-email"  value="" name="email" type="text" placeholder="Din e-postadress" class="form-control">	
         <button type="button" data-loading-text="Skickar..." class="btn btn-primary" id="rep-feedback-submit">Skicka</button>
-        <div class="alert alert-danger" id="rep-feedback-error"></div>
-        <div class="alert alert-success"id="rep-feedback-thankyou">Tack, din feedback är skickad.</div>
+        <div class="alert rep-alert alert-danger" id="rep-feedback-error"><i class="fa fa-exclamation-triangle"></i><span id="rep-feedback-error-txt"></span></div>
+        <div class="alert rep-alert alert-success"id="rep-feedback-thankyou"><i class="fa fa-check-circle"></i>Tack, din feedback är skickad.</div>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+

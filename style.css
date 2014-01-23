@@ -17,14 +17,18 @@ Text Domain: hbg
 
 
 /*** Theme customizations ***/
+html{font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;color: #333;}
 body {padding-top: 60px;}
 body.logged-in .navbar{margin-top: 30px;}
 .top-buffer { margin-top:20px;}
+a{color:#0059bd;}
+a:hover{text-decoration: underline;}
+a:visited{color:#551a8b;}
 
 
 /**** Top ***/
 #hbg-top {
-  background-color: lightblue;
+  background-color: #9eb0c9;
   position:fixed;
   top:0;
   width:100%;
@@ -32,7 +36,10 @@ body.logged-in .navbar{margin-top: 30px;}
   height: 45px;
 }
 body.admin-bar #hbg-top{top:32px;}
-#hbg-top-text{float:right;color:#fff;}
+#hbg-top-text{float:right;color:#fff!important;}
+#hbg-top-text-department{float:left;color:#fff;}
+#hbg-top-text a{color:#fff!important;}
+#hbg-top-text a:visited{color:#fff!important;}
 
 /*** Nav **/
 .navbar-collapse{float:left;}
@@ -40,7 +47,7 @@ body.admin-bar #hbg-top{top:32px;}
 
 /*** footer ***/
 #hbg-footer-container{margin-top: 30px; }
-#hbg-footer{
+#hbg-footer-center{
   text-align:center;  
   height:250px;
   background-image: url("img/hbg_footer.png");
@@ -49,21 +56,36 @@ body.admin-bar #hbg-top{top:32px;}
 }
 
 /** frontpage **/
-#hbg-search-large{text-align: center;}
+.search-area-large{margin-bottom: 20px;}
+
+
 #puff-container{margin-top: 30px;}
 .puff{
   background-color:#fff;
-  border:solid lightgrey 1px;
+  border:solid #e7e7e7 1px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -khtml-border-radius: 5px;
   border-radius: 5px;
-  padding:3%;
+  padding:2%;
 }
-.puff img{width:100%;margin-bottom:20px;}
+.puff img{width:100%;margin-bottom:5px;}
+.puff h3{margin-top:5px;}
 
 .breadcrumb {background-color: transparent;padding-left:0;}
-.alert{padding:5px 5px 5px 15px;}
+.rep-alert{padding:5px 5px 5px 15px;}
+
+.cat-container{
+  background-color:#fff;
+  border:solid #e7e7e7 1px;
+  -moz-border-radius: 0 5px 5px 0;
+  -webkit-border-radius: 0 5px 5px 0;
+  -khtml-border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 5px 0;
+  border-left-width:5px;
+  border-left-color: #9eb0c9;
+}
+.cat-container section{padding:0 2% 1% 2%;}
 
 
 /*** ???? ***/
@@ -99,7 +121,7 @@ body.admin-bar #hbg-top{top:32px;}
 img {vertical-align: bottom;max-width: 100%;}
 article img, .tab-pane img{
   background-color: #FFF;
-  border: solid lightgrey 1px;
+  border: solid #e7e7e7 1px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   -khtml-border-radius: 4px;
@@ -119,7 +141,7 @@ article .wp-caption img, .tab-pane .wp-caption img{
   padding: 1px;
   text-align: center;
   background: #FFF;
-  border: solid lightgrey 1px;
+  border: solid #e7e7e7 1px;
   border-radius: 3px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;

@@ -8,7 +8,7 @@ if (get_field('notice_link')){
 }
 ?>
 <?php if($type == 'info'): ?>
-<div class="alert alert-warning"><i class="fa fa-info-circle"></i> <?php echo $text. ' '.$link; ?></div>
+<div class="alert rep-alert alert-warning"><i class="fa fa-info-circle"></i> <?php echo $text. ' '.$link; ?></div>
 <?php elseif($type == 'warning'): ?>
-<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> <?php echo $text. ' '.$link; ?></div>
+<div class="alert rep-alert alert-danger"><i class="fa fa-exclamation-triangle"></i> <?php echo $text. ' '.$link; ?></div>
 <?php endif; ?>
