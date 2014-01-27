@@ -6,19 +6,21 @@
  */
 include 'header-home.php';
 ?>
-<div class="container">
+<div class="container" id="main-container">
   <?php
   if (have_posts()) : while (have_posts()) : the_post();
       ?>
+      <h1 id="home-h1"><?php the_field('rubrik'); ?></h1>
+      <h2 id="home-h2"><?php the_field('underrubrik'); ?></h2>
       <div class="row search-area-large">
         <div class="col-md-4">&nbsp;</div>
         <div class="col-md-4">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Vad söker du?">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Sök!</button>
-              </span>
-            </div><!-- /input-group -->
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Vad söker du?">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Sök!</button>
+            </span>
+          </div><!-- /input-group -->
         </div>
         <div class="col-md-4">&nbsp;</div>
       </div> 

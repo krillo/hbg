@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Description: The file contains functions commonly used by Reptilo 
  * Author: Kristian Erendi
@@ -22,16 +23,13 @@ function reptilo_scripts() {
   //wp_enqueue_style('custom-style');
   //wp_register_style('feedback_form', get_bloginfo('stylesheet_directory') . '/hbg/feedback/form.css', array(), '20120208', 'all');
   //wp_enqueue_style('feedback_form');
-//wp_register_style('feedback_window', get_bloginfo('stylesheet_directory') . '/hbg/feedback/window.css', array(), '20120208', 'all');
-//wp_enqueue_style('feedback_window');
+  //wp_register_style('feedback_window', get_bloginfo('stylesheet_directory') . '/hbg/feedback/window.css', array(), '20120208', 'all');
+  //wp_enqueue_style('feedback_window');
   //wp_register_style('hbg.css', get_bloginfo('stylesheet_directory') . '/hbg/css/hbg.css', array(), '20120208', 'all');
   //wp_enqueue_style('hbg.css');
   //wp_enqueue_script('jquery-ui', 'http://code.jquery.com/ui/1.10.3/jquery-ui.js', array('jquery'));
-  //wp_enqueue_script('jquery.placeholder', get_bloginfo('stylesheet_directory') . '/hbg/js/jquery.placeholder.js', array('jquery'));
+  wp_enqueue_script('jquery.placeholder', get_bloginfo('stylesheet_directory') . '/hbg/js/jquery.placeholder.js', array('jquery'));
 }
-
-
-
 
 /**
  * Shortcode for a tooltip
@@ -42,19 +40,15 @@ function reptilo_scripts() {
  * 1. bootstrap.min.js
  * 2. reptilo.js for initialization 
  */
-function rep_tooltip( $atts ) {
-	extract( shortcode_atts( array(
-		'text' => '',
-		'tip' => '',
-	), $atts ) );
-  return '<a href="#" data-toggle="tooltip" class="rep-tooltip" title="'.$tip.'" data-placement="top">'.$text.'</a>';
+function rep_tooltip($atts) {
+  extract(shortcode_atts(array(
+      'text' => '',
+      'tip' => '',
+                  ), $atts));
+  return '<a href="#" data-toggle="tooltip" class="rep-tooltip" title="' . $tip . '" data-placement="top">' . $text . '</a>';
 }
-add_shortcode( 'tooltip', 'rep_tooltip' );
 
-
-
-
-
+add_shortcode('tooltip', 'rep_tooltip');
 
 /**
  * Display posts from a category.
@@ -70,7 +64,7 @@ function printPostsPerCat($category = 'aktuellt', $nbr = 1, $nbrDigits = 100) {
   $loop = new WP_Query($args);
   if ($loop->have_posts()):
     while ($loop->have_posts()) : $loop->the_post();
-      $content = mb_substr(get_the_content(), 0, $nbrDigits). '...';
+      $content = mb_substr(get_the_content(), 0, $nbrDigits) . '...';
       $title = get_the_title();
       $guid = get_the_guid();
       $readingbox .= <<<RB
@@ -88,9 +82,7 @@ RB;
   echo $readingbox;
 }
 
-
-
-/**** Reptilo feedback callback function ****/
+/* * ** Reptilo feedback callback function *** */
 add_action('wp_ajax_rep_feedback', 'rep_feedback_callback');
 add_action('wp_ajax_nopriv_rep_feedback', 'rep_feedback_callback');
 
@@ -116,7 +108,7 @@ Email: $email
 $msg
 
 MSG;
-  
+
   $success = wp_mail($to_email, $subject, $message);
   $response = json_encode(array('success' => $success, 'guid' => $guid));
   header('Cache-Control: no-cache, must-revalidate');
@@ -125,9 +117,6 @@ MSG;
   echo $response;
   die(); // this is required to return a proper result
 }
-
-
-
 
 /**
  * Custom post type - FAQ 
@@ -167,3 +156,4 @@ function create_faq() {
 }
 
 add_action('init', 'create_faq');
+

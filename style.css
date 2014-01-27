@@ -18,12 +18,14 @@ Text Domain: hbg
 
 /*** Theme customizations ***/
 html{font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;color: #333;}
-body {padding-top: 60px;}
+body {padding-top: 60px;background-image: url("img/bg-gradient.png");background-repeat:  repeat-x;}
 body.logged-in .navbar{margin-top: 30px;}
 .top-buffer { margin-top:20px;}
 a{color:#0059bd;}
 a:hover{text-decoration: underline;}
 a:visited{color:#551a8b;}
+h1{font-size: 30px;font-weight: bold;}
+h2{font-size: 16px;font-weight: normal;}
 
 
 /**** Top ***/
@@ -36,8 +38,8 @@ a:visited{color:#551a8b;}
   height: 45px;
 }
 body.admin-bar #hbg-top{top:32px;}
-#hbg-top-text{float:right;color:#fff!important;}
-#hbg-top-text-department{float:left;color:#fff;}
+#hbg-logo-area{padding-top: 5px;float:left;}
+#hbg-top-text{float:right;color:#fff!important;padding-top: 13px;}
 #hbg-top-text a{color:#fff!important;}
 #hbg-top-text a:visited{color:#fff!important;}
 
@@ -55,7 +57,10 @@ body.admin-bar #hbg-top{top:32px;}
   background-position:center bottom;
 }
 
+
 /** frontpage **/
+#home-h1{text-align: center;}
+#home-h2{text-align: center;}
 .search-area-large{margin-bottom: 20px;}
 
 
@@ -77,13 +82,12 @@ body.admin-bar #hbg-top{top:32px;}
 
 .cat-container{
   background-color:#fff;
-  border:solid #e7e7e7 1px;
+  border-left:solid #9eb0c9 5px;
   -moz-border-radius: 0 5px 5px 0;
   -webkit-border-radius: 0 5px 5px 0;
   -khtml-border-radius: 0 5px 5px 0;
   border-radius: 0 5px 5px 0;
   border-left-width:5px;
-  border-left-color: #9eb0c9;
 }
 .cat-container section{padding:0 2% 1% 2%;}
 

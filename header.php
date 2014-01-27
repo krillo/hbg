@@ -39,7 +39,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container" id="">
       <div id="hbg-logo-area">
         <img class="" alt="Helsingborgs logo" src="/wp-content/themes/helsingborg/img/hbg-logo.png" >
       </div>
