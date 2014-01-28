@@ -39,13 +39,13 @@ h2{font-size: 16px;font-weight: normal;}
 }
 body.admin-bar #hbg-top{top:32px;}
 #hbg-logo-area{padding-top: 5px;float:left;}
-#hbg-top-text{float:right;color:#fff!important;padding-top: 13px;}
+#hbg-top-text{float:right;color:#fff!important;padding-top: 13px;font-size: 13px;}
 #hbg-top-text a{color:#fff!important;}
 #hbg-top-text a:visited{color:#fff!important;}
-
+#hbg-top-search{float:right;padding-top: 5px;}
 /*** Nav **/
 .navbar-collapse{float:left;}
-#hbg-search{float:right;}
+
 
 /*** footer ***/
 #hbg-footer-container{margin-top: 30px; }

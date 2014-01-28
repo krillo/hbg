@@ -15,12 +15,14 @@ include 'header-home.php';
       <div class="row search-area-large">
         <div class="col-md-4">&nbsp;</div>
         <div class="col-md-4">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Vad söker du?">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Sök!</button>
-            </span>
-          </div><!-- /input-group -->
+          <form action="/" method="get" role="search" id="hbg-search">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Vad söker du?" autocomplete="off" type="text" name="s">
+              <span class="input-group-btn">
+                <input class="btn btn-default" type="submit" value="Sök!">
+              </span>
+            </div>
+          </form>
         </div>
         <div class="col-md-4">&nbsp;</div>
       </div> 
@@ -46,6 +48,7 @@ include 'header-home.php';
         <div class="col-md-3">
           <div class="puff" id="puff2">
             <img class="" alt="" src="<?php the_field('bild_2'); ?>" >
+            <h3 class="less-top-margin"><?php the_field('rubrik2'); ?></h3>
             <p><?php echo mb_substr(get_field('text_2'), 0, 100) . '...'; ?></p><a href="<?php
             $post_obj = get_field('lank_2');
             echo $post_obj->guid;
@@ -55,6 +58,7 @@ include 'header-home.php';
         <div class="col-md-3">
           <div class="puff" id="puff3">
             <img class="" alt="" src="<?php the_field('bild_3'); ?>" >
+            <h3 class="less-top-margin"><?php the_field('rubrik3'); ?></h3>
             <p><?php echo mb_substr(get_field('text_3'), 0, 100) . '...'; ?></p><a href="<?php
             $post_obj = get_field('lank_3');
             echo $post_obj->guid;
@@ -64,6 +68,7 @@ include 'header-home.php';
         <div class="col-md-3">
           <div class="puff" id="puff4">
             <img class="" alt="" src="<?php the_field('bild_4'); ?>" >
+            <h3 class="less-top-margin"><?php the_field('rubrik4'); ?></h3>
             <p><?php echo mb_substr(get_field('text_4'), 0, 100) . '...'; ?></p><a href="<?php
             $post_obj = get_field('lank_4');
             echo $post_obj->guid;

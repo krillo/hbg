@@ -18,7 +18,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="http://getbootstrap.com/docs-assets/ico/favicon.png" >
     <title><?php wp_title('|', true, 'right'); ?></title>
-    
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -31,10 +31,20 @@
     <?php include_once "bin/reptilo_overlay_feedback.php"; ?>
     <div id="hbg-top">
       <div class="container">
-        <div id="hbg-top-text">
-          <?php if (get_field('feedback')): ?>
-          <a href="" class="" data-toggle="modal" data-target="#myModal">Skicka in dina synpunkter och kommentarer</a>
-          <?php endif; ?>
+        <div class="row">
+          <form action="/" method="get" role="search" id="hbg-top-search" class="col-md-3">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Ange sökord..." autocomplete="off" type="text" name="s">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button" onclick="document.getElementById('hbg-top-search').submit();"><span class="glyphicon glyphicon-search"></span></button>
+              </span>
+            </div>
+          </form>
+          <div id="hbg-top-text"  class="">
+            <?php if ( get_field('feedback') != "inte_feedback"): ?>
+              <a href="" class="" data-toggle="modal" data-target="#myModal">Ställ frågor eller lämna synpunkter <i class="fa fa-comment"></i></a>
+            <?php endif; ?>
+          </div>
         </div>
       </div>
     </div>
@@ -73,10 +83,5 @@
             'walker' => new wp_bootstrap_navwalker())
         );
         ?>
-
-        <form action="/" method="get" role="search" id="hbg-search">
-          <label><span class="hidden">Sök</span> <input autocomplete="off" type="text" name="s" value="" accesskey="4" title="Fyll i sökord" tabindex="-1"></label>
-          <button class="btn-search" tabindex="-1">Sök</button>
-        </form>
       </div>
     </nav>
