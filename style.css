@@ -47,6 +47,11 @@ body.admin-bar #hbg-top{top:32px;}
 .navbar-collapse{float:left;}
 
 
+.rep-uppdated{float:left;border-top:dotted 1px #B6B6B6;padding-top: 10px;}
+.rep-uppdated span{font-weight: bold;}
+
+
+
 /*** footer ***/
 #hbg-footer-container{margin-top: 30px; }
 #hbg-footer-center{

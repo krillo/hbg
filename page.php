@@ -13,7 +13,13 @@
             <?php the_content(); ?>
           </article>
         </div>  
-      </div>  
+      </div>
+      <div class="row">
+        <div class="col-md-12 rep-uppdated">
+          <span class="">Senast uppdaterad:</span>  <?php the_modified_date(); ?><br/>
+          <span class="">Sidansvarig:</span>  <?php the_field('sidansvarig'); ?><br/>
+        </div>
+      </div>
       <?php
     endwhile;
   else:

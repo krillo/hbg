@@ -13,7 +13,7 @@ function dimox_breadcrumbs() {
   $showOnHome = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
   //$delimiter = '<span class="divider">/</span>'; // delimiter between crumbs
   $delimiter = '<span class="divider"></span>'; // delimiter between crumbs
-  $home = 'Home'; // text for the 'Home' link
+  $home = 'Hem'; // text for the 'Home' link
   $showCurrent = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show
   $before = '<li class="active"><span class="current">'; // tag before the current crumb
   $after = '</span></li>'; // tag after the current crumb

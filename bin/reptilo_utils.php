@@ -28,7 +28,7 @@ function reptilo_scripts() {
   //wp_register_style('hbg.css', get_bloginfo('stylesheet_directory') . '/hbg/css/hbg.css', array(), '20120208', 'all');
   //wp_enqueue_style('hbg.css');
   //wp_enqueue_script('jquery-ui', 'http://code.jquery.com/ui/1.10.3/jquery-ui.js', array('jquery'));
-  wp_enqueue_script('jquery.placeholder', get_bloginfo('stylesheet_directory') . '/hbg/js/jquery.placeholder.js', array('jquery'));
+  wp_enqueue_script('jquery.placeholder', get_bloginfo('stylesheet_directory') . '/js/jquery.placeholder.js', array('jquery'));
 }
 
 /**
