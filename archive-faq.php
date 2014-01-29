@@ -19,6 +19,7 @@
           </div>
         </article>
       <?php endwhile; ?>
+    <?php if (function_exists('bootstrap3_pagination')) {bootstrap3_pagination();} ?>      
     </div>  
   <?php else: ?>
     <div class="col-md-12">

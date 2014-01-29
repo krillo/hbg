@@ -190,3 +190,13 @@ article .wp-caption img, .tab-pane .wp-caption img{
   border-color: #EEA236;
 }
 
+
+
+/**** Pagination fix for bootstrap /krillo ****/
+.pagination .current, .pagination .current:hover{
+  z-index: 2;
+  color: #FFF;
+  cursor: default;
+  background-color: #428BCA;
+  border-color: #428BCA;
+}

@@ -15,7 +15,8 @@
         </article>
       </div>
     <?php endwhile; ?>
-  <?php else: ?>
+    <?php if (function_exists('bootstrap3_pagination')) {bootstrap3_pagination();} ?>        
+    <?php else: ?>
     <div class="row">
       <div class="col-md-12">
         <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
