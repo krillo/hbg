@@ -70,7 +70,7 @@ function printPostsPerCat($category = 'aktuellt', $nbr = 1, $nbrDigits = 100) {
       $readingbox .= <<<RB
 <div class="cat-container">
   <section>
-    <h2>Aktuellt just nu: $title</h2>
+    <h2>Aktuellt just nu: <span>$title</span></h2>
     <p>$content</p>
     <a href="$guid" target="" class="btn btn-default btn-xs">Läs mer</a>
   </section>

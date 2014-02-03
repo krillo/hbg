@@ -31,12 +31,6 @@
   <body <?php body_class(); ?> > 
     <div id="hbg-top">
       <div class="container">
-        <div id="hbg-logo-area">
-          <img class="" alt="Helsingborgs logo" src="/wp-content/themes/helsingborg/img/hbg-logo.png" >
-        </div>
-        <div id="hbg-top-text">
-          <?php the_field('text_top'); ?>
-        </div>
       </div>
     </div>
 

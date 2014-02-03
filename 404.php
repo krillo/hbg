@@ -7,20 +7,19 @@
     <?php if (function_exists('pageHiearachy')) pageHiearachy(); ?>
   </div>
   <div class="col-md-7">  
-    <h1>Beklagar, sidan du försöker visa finns tyvärr inte!</h1>
+    <h1>Sidan finns tyvärr inte!</h1>
     <div class="row search-area-large">
-      <div class="col-md-1">&nbsp;</div>
-      <div class="col-md-10">
+      <div class="col-md-8">
         <form action="/" method="get" role="search" id="hbg-search">
-          <div class="input-group">
+          <div class="input-group input-group-lg">
             <input type="text" class="form-control" placeholder="Vad söker du?" autocomplete="off" type="text" name="s">
             <span class="input-group-btn">
-              <input class="btn btn-default" type="submit" value="Sök!">
+              <input class="btn btn-default hbg-btn" type="submit" value="Sök!">
             </span>
           </div>
         </form>
       </div>
-      <div class="col-md-1">&nbsp;</div>
+      <div class="col-md-4">&nbsp;</div>
     </div>         
   </div>
   <div class="col-md-2" id="second-sidebar">

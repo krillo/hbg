@@ -35,7 +35,7 @@
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Ange sökord..." autocomplete="off" type="text" name="s">
               <span class="input-group-btn">
-                <button class="btn btn-default" type="button" onclick="document.getElementById('hbg-top-search').submit();"><span class="glyphicon glyphicon-search"></span></button>
+                <button class="btn btn-default hbg-top-btn" type="button" onclick="document.getElementById('hbg-top-search').submit();"><span class="glyphicon glyphicon-search"></span></button>
               </span>
             </div>
           </form>

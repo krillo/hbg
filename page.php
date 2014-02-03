@@ -29,8 +29,8 @@
     </div>
   <?php endif; ?>  
 
-  <div class="col-md-2" id="second-sidebar">
-    tjoho
+  <div class="col-md-2" id="sidebar-info">
+    <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("sidebar_info") ) : endif; ?>    
   </div>     
 </div>  <!-- end container -->
 <?php get_footer(); ?>
