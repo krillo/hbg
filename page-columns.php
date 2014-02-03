@@ -20,57 +20,75 @@ get_header();
 ?>
 <div class="container">
   <?php if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
-  <?php
-  if (have_posts()) : while (have_posts()) : the_post();
-      ?>
-      <div class="row">
-        <div class="col-md-12">
+  <div class="row" id="">
+    <div class="col-md-3" id="nav-sidebar">
+      <?php if (function_exists('pageHiearachy')) pageHiearachy(); ?>
+    </div>  
+    <?php
+    if (have_posts()) : while (have_posts()) : the_post();
+        ?>
+        <div class="col-md-7">
           <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <h1><?php the_title(); ?></h1>
             <?php the_content(); ?>
           </article>
-        </div>
-      </div>  
+        </div>        
+        <div class="col-md-2" id="second-sidebar">
+          tjoho
+        </div> 
+      </div> 
       <?php if ($grid != 0): ?>
         <div class="row top-buffer" id="column-container">
           <?php if (get_field('rubrik1')): ?>
             <div class="col-md-<?php echo $grid; ?>">
-              <div class="column" id="col1">
-                <h2><i class="fa fa-rocket"></i> <?php the_field('rubrik1'); ?></h2>
+              <div class="rep-column" id="col1">
+                <h2 class="rep-col-heding"><i class="fa fa-rocket"></i> <?php the_field('rubrik1'); ?></h2>
                 <p><?php the_field('text1'); ?></p>
-                <a href="<?php $post_obj = get_field('lank1'); echo $post_obj->guid;?>">Läs mer...</a>
+                <a href="<?php
+                $post_obj = get_field('lank1');
+                echo $post_obj->guid;
+                ?>">Läs mer...</a>
               </div>
             </div>  
           <?php endif; ?>
-          <?php if (get_field('rubrik2')): ?>
+      <?php if (get_field('rubrik2')): ?>
             <div class="col-md-<?php echo $grid; ?>">
-              <div class="column" id="col2">
-                <h2><i class="fa fa-rocket"></i> <?php the_field('rubrik2'); ?></h2>
+              <div class="rep-column" id="col2">
+                <h2 class="rep-col-heding"><i class="fa fa-rocket"></i> <?php the_field('rubrik2'); ?></h2>
                 <p><?php the_field('text2'); ?></p>
-                <a href="<?php $post_obj = get_field('lank2'); echo $post_obj->guid;?>">Läs mer...</a>
+                <a href="<?php
+                   $post_obj = get_field('lank2');
+                   echo $post_obj->guid;
+                   ?>">Läs mer...</a>
               </div>
             </div>    
-          <?php endif; ?>
-          <?php if (get_field('rubrik3')): ?>
-            <div class="col-md-<?php echo $grid; ?>">
-              <div class="column" id="col3">
-                <h2><i class="fa fa-rocket"></i> <?php the_field('rubrik3'); ?></h2>
-                <p><?php the_field('text3'); ?></p>
-                <a href="<?php $post_obj = get_field('lank3'); echo $post_obj->guid;?>">Läs mer...</a>
-              </div>
-            </div>
-          <?php endif; ?>
-          <?php if (get_field('rubrik4')): ?>
-            <div class="col-md-<?php echo $grid; ?>">
-              <div class="column" id="col4">
-                <h2><i class="fa fa-rocket"></i> <?php the_field('rubrik4'); ?></h2>
-                <p><?php the_field('text4'); ?></p>
-                <a href="<?php $post_obj = get_field('lank4'); echo $post_obj->guid;?>">Läs mer...</a>
-              </div>
-            </div>
-          <?php endif; ?>
-        </div>
       <?php endif; ?>
+      <?php if (get_field('rubrik3')): ?>
+            <div class="col-md-<?php echo $grid; ?>">
+              <div class="rep-column" id="col3">
+                <h2 class="rep-col-heding"><i class="fa fa-rocket"></i> <?php the_field('rubrik3'); ?></h2>
+                <p><?php the_field('text3'); ?></p>
+                <a href="<?php
+        $post_obj = get_field('lank3');
+        echo $post_obj->guid;
+        ?>">Läs mer...</a>
+              </div>
+            </div>
+      <?php endif; ?>
+      <?php if (get_field('rubrik4')): ?>
+            <div class="col-md-<?php echo $grid; ?>">
+              <div class="rep-column" id="col4">
+                <h2 class="rep-col-heding"><i class="fa fa-rocket"></i> <?php the_field('rubrik4'); ?></h2>
+                <p><?php the_field('text4'); ?></p>
+                <a href="<?php
+           $post_obj = get_field('lank4');
+           echo $post_obj->guid;
+           ?>">Läs mer...</a>
+              </div>
+            </div>
+      <?php endif; ?>
+        </div>
+    <?php endif; ?>
     </div>  
     <?php
   endwhile;
@@ -79,6 +97,6 @@ else:
   <div class="span12">  
     <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
   </div>
-<?php endif; ?>  
+<?php endif; ?>   
 </div>  <!-- end container -->
 <?php get_footer(); ?>

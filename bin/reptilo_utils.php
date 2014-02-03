@@ -63,7 +63,8 @@ function printPostsPerCat($category = 'aktuellt', $nbr = 1, $nbrDigits = 100) {
   $loop = new WP_Query($args);
   if ($loop->have_posts()):
     while ($loop->have_posts()) : $loop->the_post();
-      $content = mb_substr(get_the_content(), 0, $nbrDigits) . '...';
+      //$content = mb_substr(get_the_content(), 0, $nbrDigits) . '...';
+      $content = get_the_excerpt();
       $title = get_the_title();
       $guid = get_the_guid();
       $readingbox .= <<<RB
@@ -156,8 +157,6 @@ function create_faq() {
 
 add_action('init', 'create_faq');
 
-
-
 /**
  * Pagination Bootstrap 3 style
  * 
@@ -183,12 +182,45 @@ function bootstrap3_pagination($query = null) {
   if ($query->max_num_pages > 1) :
     ?>
     <ul class="pagination pagination-sm">
-    <?php
-    foreach ($paginate as $page) {
-      echo '<li>' . $page . '</li>';
-    }
-    ?>
-    </ul>
       <?php
-    endif;
+      foreach ($paginate as $page) {
+        echo '<li>' . $page . '</li>';
+      }
+      ?>
+    </ul>
+    <?php
+  endif;
+}
+
+/**
+ * THis function echoes the page hieararchy
+ */
+function pageHiearachy() {
+  $faqstyle = '';
+  if (is_post_type_archive( 'faq' )){
+    $faqstyle = 'current_page_item';
   }
+  $args = array(
+      'authors' => '',
+      'child_of' => 0,
+      'date_format' => get_option('date_format'),
+      'depth' => 0,
+      'echo' => 0,
+      'exclude' => '',
+      'exclude_tree' => '1663',
+      'include' => '',
+      'link_after' => '',
+      'link_before' => '',
+      'post_type' => 'page',
+      'post_status' => 'publish',
+      'show_date' => '',
+      'sort_column' => 'menu_order, post_title',
+      'title_li' => __(''),
+      'walker' => ''
+  );
+  $out = '<ul id = "rep-page-hierarchy">' . wp_list_pages($args);
+  $out .= '<li class="page_item '.$faqstyle.' "><a href="/faq/">FAQ</a></li>';
+  $out .= '</ul>';
+  echo $out;
+}
+

@@ -122,6 +122,15 @@ register_nav_menus( array(
 ) );
 
 
+/**
+ * Remove the [...] from the excerpt printout 
+ * @param type $more
+ * @return string
+ */
+function new_excerpt_more( $more ) {
+	return '...';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
 
 
 

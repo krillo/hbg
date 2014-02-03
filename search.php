@@ -4,7 +4,7 @@
   <div class="row" id="">
     <div class="col-md-3" id="nav-sidebar">
       <?php if (function_exists('pageHiearachy')) pageHiearachy(); ?>
-    </div>  
+    </div>
     <?php if (have_posts()) : ?>
       <div class="col-md-7">
         <h1><?php single_cat_title(); ?></h1>

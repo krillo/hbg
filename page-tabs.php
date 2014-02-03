@@ -10,26 +10,32 @@ get_header();
 ?>
 <div class="container">
   <?php if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
-  <?php
-  if (have_posts()) : while (have_posts()) : the_post();
-      ?>
-      <div class="row">
-        <div class="col-md-12">
+  <div class="row" id="">
+    <div class="col-md-3" id="nav-sidebar">
+      <?php if (function_exists('pageHiearachy')) pageHiearachy(); ?>
+    </div>    
+    <?php
+    if (have_posts()) : while (have_posts()) : the_post();
+        ?>
+        <div class="col-md-7">
           <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <h1><?php the_title(); ?></h1>
             <?php the_content(); ?>
           </article>
-        </div>  
+        </div>
+        <div class="col-md-2" id="second-sidebar">
+          tjoho
+        </div>     
       </div>          
       <div class="row top-buffer">
         <div class="col-md-12">
           <!-- Nav tabs -->
           <ul class="nav nav-tabs">
-            <?php if (get_field('rubrik1')): ?><li  class="active"><a href="#tabs-1" data-toggle="tab"><?php the_field('rubrik1'); ?> <span class="glyphicon glyphicon-chevron-right"></span></a></li><?php endif; ?>
-            <?php if (get_field('rubrik2')): ?><li><a href="#tabs-2" data-toggle="tab"><?php the_field('rubrik2'); ?> <span class="glyphicon glyphicon-chevron-right"></span></a></li><?php endif; ?>
-            <?php if (get_field('rubrik3')): ?><li><a href="#tabs-3" data-toggle="tab"><?php the_field('rubrik3'); ?> <span class="glyphicon glyphicon-chevron-right"></span></a></li><?php endif; ?>
-            <?php if (get_field('rubrik4')): ?><li><a href="#tabs-4" data-toggle="tab"><?php the_field('rubrik4'); ?> <span class="glyphicon glyphicon-chevron-right"></span></a></li><?php endif; ?>
-            <?php if (get_field('rubrik5')): ?><li><a href="#tabs-5" data-toggle="tab"><?php the_field('rubrik5'); ?> <span class="glyphicon glyphicon-chevron-right"></span></a></li><?php endif; ?>                
+            <?php if (get_field('rubrik1')): ?><li  class="active"><a href="#tabs-1" data-toggle="tab"><?php the_field('rubrik1'); ?> <i class="fa fa-angle-double-right"></i></a></li><?php endif; ?>
+            <?php if (get_field('rubrik2')): ?><li><a href="#tabs-2" data-toggle="tab"><?php the_field('rubrik2'); ?> <i class="fa fa-angle-double-right"></i></a></li><?php endif; ?>
+            <?php if (get_field('rubrik3')): ?><li><a href="#tabs-3" data-toggle="tab"><?php the_field('rubrik3'); ?> <i class="fa fa-angle-double-right"></i></span></a></li><?php endif; ?>
+            <?php if (get_field('rubrik4')): ?><li><a href="#tabs-4" data-toggle="tab"><?php the_field('rubrik4'); ?> <i class="fa fa-angle-double-right"></i></a></li><?php endif; ?>
+            <?php if (get_field('rubrik5')): ?><li><a href="#tabs-5" data-toggle="tab"><?php the_field('rubrik5'); ?> <i class="fa fa-angle-double-right"></i></a></li><?php endif; ?>                
           </ul>
           <!-- Tab panes -->
           <div class="tab-content">
