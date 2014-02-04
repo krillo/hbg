@@ -193,16 +193,97 @@ function bootstrap3_pagination($query = null) {
 }
 
 /**
- * THis function echoes the page hieararchy
+ * This function echoes a hiearchical tree menu suited for intranets.
+ * A chunk of javascript is in the reptilo.js
+ * 
+ * Use like this:
+ * <?php if (function_exists('rep_page_hierarchy')) rep_page_hierarchy(); ?>
+ * 
+ * @global type $post
  */
-function pageHiearachy() {
+function rep_page_hierarchy() {
+  global $post;
+  $currentPostId = $post->ID;
+  $forefatherId = rep_get_forefather($post->ID);
   $faqstyle = '';
-  if (is_post_type_archive( 'faq' )){
-    $faqstyle = 'current_page_item';
+  if (is_post_type_archive('faq')) {
+    $faqstyle = 'current_page_item ';
   }
   $args = array(
+      'sort_order' => 'ASC',
+      'sort_column' => 'post_title',
+      'hierarchical' => 1,
+      'exclude' => '',
+      'include' => '',
+      'meta_key' => '',
+      'meta_value' => '',
       'authors' => '',
       'child_of' => 0,
+      'parent' => 0,
+      'exclude_tree' => '1663',
+      'number' => '',
+      'offset' => 0,
+      'post_type' => 'page',
+      'post_status' => 'publish'
+  );
+  $pages = get_pages($args);
+
+  $out = '<div class="rep-page-hierarchy">';
+  foreach ($pages as $page) {
+    $showTree = false;
+    if ($page->ID == $forefatherId) {
+      $showTree = true;
+    }
+    $ul = rep_list_pages($page->ID, $showTree);
+    $div_class = '';
+    $a_class = '';
+    $caret = false;
+    if ($ul != '') {
+      $div_class = ' rep-has-children ';
+      $caret = true;
+    }
+    if ($currentPostId == $page->ID) {
+      $a_class = ' current_page_item ';
+    }
+    $out .= '<div class="rep-forefather page-id-' . $page->ID . $div_class . '">';
+    $out .= '<a href="' . get_permalink($page->ID) . '" class="' . $a_class . '">' . $page->post_title . '</a>';
+    $out .= $caret ? '<i class="fa fa-caret-down rep-caret" style="float:right;" data="' . $page->ID . '"></i>' : '';
+    $out .= $ul;
+    $out .= '</div>';
+  }
+  $out .= '<div class="rep-forefather"><a href="/faq/" class="'.$faqstyle.'">FAQ</a></div>';
+  $out .= '</div>';
+  echo $out;
+}
+
+/**
+ * This is a helper function to rep_page_hierarchy()
+ * 
+ * @param type $postId
+ * @return type
+ */
+function rep_get_forefather($postId) {
+  $ancestors = get_ancestors($postId, 'page');
+  if (count($ancestors) > 0) {
+    return $ancestors[count($ancestors) - 1];
+  } else {
+    return -1;
+  }
+}
+
+/**
+ * This is a helper function to rep_page_hierarchy()
+ * 
+ * @param type $id
+ * @param type $showTree
+ * @return string
+ */
+function rep_list_pages($id, $showTree) {
+  $ul = '';
+  $li = '';
+  $args = array(
+      'authors' => '',
+      'child_of' => $id,
       'date_format' => get_option('date_format'),
       'depth' => 0,
       'echo' => 0,
@@ -218,9 +299,12 @@ function pageHiearachy() {
       'title_li' => __(''),
       'walker' => ''
   );
-  $out = '<ul id = "rep-page-hierarchy">' . wp_list_pages($args);
-  $out .= '<li class="page_item '.$faqstyle.' "><a href="/faq/">FAQ</a></li>';
-  $out .= '</ul>';
-  echo $out;
+  $li = wp_list_pages($args);
+  if ($li != '') {
+    if (!$showTree) {
+      $class = ' rep-collapse ';
+    }
+    $ul = '<ul id="rep-children-to-' . $id . '" class="rep-top-children' . $class . ' ">' . $li . '</ul>';
+  }
+  return $ul;
 }
-

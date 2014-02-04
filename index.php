@@ -1,7 +1,6 @@
 <?php get_header();
 ?>
 <div class="container">
-  <?php if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
   <?php
   if (have_posts()) : while (have_posts()) : the_post();
       ?>

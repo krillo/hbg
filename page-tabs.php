@@ -9,10 +9,9 @@
 get_header();
 ?>
 <div class="container">
-  <?php if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
   <div class="row" id="">
     <div class="col-md-3" id="nav-sidebar">
-      <?php if (function_exists('pageHiearachy')) pageHiearachy(); ?>
+      <?php if (function_exists('rep_page_hierarchy')) rep_page_hierarchy(); ?>
     </div>    
     <?php
     if (have_posts()) : while (have_posts()) : the_post();
@@ -24,7 +23,7 @@ get_header();
           </article>
         </div>
         <div class="col-md-2" id="second-sidebar">
-          tjoho
+          <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar("sidebar_info")) : endif; ?>    
         </div>     
       </div>          
       <div class="row top-buffer">

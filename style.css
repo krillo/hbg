@@ -53,7 +53,7 @@ body.admin-bar #hbg-top{top:32px;}
 .navbar-collapse{float:left;}
 
 
-
+.rep-content{border-left:solid 1px #B6B6B6;}
 .rep-article{border-bottom:dotted 1px #B6B6B6;padding-bottom: 10px;margin-bottom: 10px;overflow:hidden;}
 .rep-updated{clear:both;float:left;}
 .rep-updated span{font-weight: bold;}
@@ -234,25 +234,13 @@ body.archive article, body.search article{margin-bottom: 10px;}
 .rep-column h2{border-bottom: solid 4px #9EB0C9;padding-bottom: 10px;font-size: 20px;font-weight: bold;}
 
 
-/*** page-heirarchy ***/
-#nav-sidebar{background-color: lightcyan;}
-#rep-page-hierarchy{list-style: none;padding:0;}
-#rep-page-hierarchy ul{list-style: none;padding-left:10px;}
+/*** rep-page-hierarchy ***/
+.rep-page-hierarchy{}
+.rep-forefather{border:1px gray solid;border-radius: 5px; margin-bottom: 3px;background-color: #93B1CC;padding:5px;}
+.rep-forefather a.current_page_item{font-weight: bold;}
 li.current_page_item > a {font-weight: bold;}
+.rep-collapse{display: none;}
 
-/* #rep-page-hierarchy .page_item{border: #00F 1px solid;padding: 5px;border-radius: 5px;} */
-
-#rep-page-hierarchy  ul,
-#rep-page-hierarchy .current_page_item ul ul,
-#rep-page-hierarchy .current_page_ancestor ul ul,
-#rep-page-hierarchy .current_page_ancestor .current_page_item ul ul,
-#rep-page-hierarchy .current_page_ancestor .current_page_ancestor ul ul {display: none;}
-#rep-page-hierarchy .current_page_item ul,
-#rep-page-hierarchy .current_page_ancestor ul,
-#rep-page-hierarchy .current_page_ancestor .current_page_item ul,
-#rep-page-hierarchy .current_page_ancestor .current_page_ancestor ul,
-#rep-page-hierarchy .current_page_ancestor .current_page_ancestor .current_page_item ul,
-#rep-page-hierarchy .current_page_ancestor .current_page_ancestor .current_page_ancestor ul {display: block;}
 
 
 /*** sidebar ***/

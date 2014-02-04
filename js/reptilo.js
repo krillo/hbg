@@ -1,5 +1,6 @@
 /** 
  * This js script will be run on every pageview
+ * @author Kristian Erendi
  */
 jQuery(document).ready(function($) {
   init();
@@ -20,5 +21,20 @@ jQuery(document).ready(function($) {
     $(".rep-tooltip").tooltip();
     $('input, textarea').placeholder();
   }
+
+
+
+  
+  /**
+   * Catch event - expand list in the rep-page-hierarchy navigation
+   * Part of rep-page-hierarchy functionality
+   */
+  $(".rep-caret").click(function() {
+    var postId = $(this).attr("data");
+    var ulId = '#rep-children-to-' + postId;
+    //$('.rep-top-children').hide('slow');
+    $(ulId).toggle('slow');
+  });
+
 
 });

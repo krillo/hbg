@@ -29,14 +29,14 @@ function hbg_scripts_styles() {
 add_action('wp_enqueue_scripts', 'hbg_scripts_styles');
 
 
-
+/*
 if (!function_exists('twentythirteen_paging_nav')) :
 
   /**
    * Displays navigation to next/previous set of posts when applicable.
    * @since Twenty Thirteen 1.0
    * @return void
-   */
+   * /
   function twentythirteen_paging_nav() {
     global $wp_query;
     // Don't print empty markup if there's only one page.
@@ -65,7 +65,7 @@ if (!function_exists('twentythirteen_post_nav')) :
    * Displays navigation to next/previous post when applicable.
    * @since Twenty Thirteen 1.0
    * @return void
-   */
+   * /
   function twentythirteen_post_nav() {
     global $post;
     // Don't print empty markup if there's nowhere to navigate.
@@ -98,7 +98,7 @@ endif;
  *
  * @param array $classes A list of existing body class values.
  * @return array The filtered body class list.
- */
+ * /
 function twentythirteen_body_class($classes) {
   if (!is_multi_author())
     $classes[] = 'single-author';
@@ -114,7 +114,7 @@ function twentythirteen_body_class($classes) {
 
 add_filter('body_class', 'twentythirteen_body_class');
 
-
+*/
 
 
 /**
