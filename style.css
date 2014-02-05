@@ -52,9 +52,12 @@ body.admin-bar #hbg-top{top:32px;}
 .hbg-top-btn:hover{background-color:#6fd69a;}
 
 /*** Nav **/
-.navbar-collapse{float:left;}
-.navbar-default {background-color: #EFEFEF;border: 1px solid #DEDFDC; }
+.navbar-collapse{float:left;padding-left: 15px;}
+.navbar-default {background-color: #EFEFEF;border: 1px solid #DEDFDC; padding-left: 0px;}
 .navbar-default {margin-bottom: 65px;}
+
+.navbar-brand{padding: 10px 0 0 15px;}
+.navbar-brand i{font-size: 30px;}
 
 
 .rep-content{}

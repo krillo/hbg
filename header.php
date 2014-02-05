@@ -50,7 +50,7 @@
 
     <div class="container" id="">
       <div id="hbg-logo-area">
-        <img class="" alt="Helsingborgs logo" src="/wp-content/themes/helsingborg/img/hbg-logo.png" >
+        <a class="" href="<?php bloginfo('url'); ?>"><img class="" alt="Helsingborgs logo" src="/wp-content/themes/helsingborg/img/hbg-logo.png" ></a>
       </div>
     </div>
 
@@ -64,9 +64,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-
           <a class="navbar-brand" href="<?php bloginfo('url'); ?>">
-            <?php bloginfo('name'); ?>
+            <i class="fa fa-home"></i>
           </a>
         </div>
 
