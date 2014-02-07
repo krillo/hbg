@@ -243,6 +243,7 @@ body.archive article, body.search article{margin-bottom: 10px;}
 
 /*** rep-page-hierarchy ***/
 .rep-page-hierarchy{background-color: #EFEFEF;padding: 10px;border-radius: 5px;border: 1px solid #DEDFDC;}
+.rep-page-hierarchy i:hover{cursor: pointer;}
 .rep-page-hierarchy a{color:#555;}
 .rep-page-hierarchy a:hover{color:#000;text-decoration: none;}
 .rep-page-hierarchy ul{list-style: none;padding-left:0px;}
