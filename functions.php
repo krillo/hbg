@@ -12,13 +12,12 @@
 /**
  * Enqueues scripts and styles for frontend.
  */
-function hbg_scripts_styles() {
+function reptilo_enqueue_scripts() {
   wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '2013-12-20', true);
   wp_enqueue_script('general', get_template_directory_uri() . '/js/reptilo.js', array('jquery'), '2013-12-20', true);
-  wp_enqueue_style('hbg-style', get_stylesheet_uri(), array(), '2013-12-20');
-  wp_register_style('font_awesome', get_bloginfo('stylesheet_directory') . '/fonts/font-awesome/css/font-awesome.min.css', array(), '20120208', 'all');
-  wp_enqueue_style('font_awesome');
-
+  wp_enqueue_script('jquery.placeholder', get_template_directory_uri() . '/js/jquery.placeholder.js', array('jquery'), '2013-12-20', true);
+  wp_enqueue_style('font_awesome', get_template_directory_uri() . '/fonts/font-awesome/css/font-awesome.min.css', array(), '2013-12-20');
+  wp_enqueue_style('style', get_stylesheet_uri(), array(), '2013-12-20');
 
   // Adds JavaScript to pages with the comment form to support sites with threaded comments (when in use).
   if (is_singular() && comments_open() && get_option('thread_comments')) {
@@ -26,7 +25,7 @@ function hbg_scripts_styles() {
   }
 }
 
-add_action('wp_enqueue_scripts', 'hbg_scripts_styles');
+add_action('wp_enqueue_scripts', 'reptilo_enqueue_scripts');
 
 
 /*
