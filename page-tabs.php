@@ -22,51 +22,51 @@ get_header();
             <h1><?php the_title(); ?></h1>
             <?php the_content(); ?>
           </article>
+          <div class="row top-buffer">
+            <div class="col-md-12">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs">
+                <?php if (get_field('rubrik1')): ?><li  class="active"><a href="#tabs-1" data-toggle="tab"><?php the_field('rubrik1'); ?> <i class="fa fa-angle-double-right"></i></a></li><?php endif; ?>
+                <?php if (get_field('rubrik2')): ?><li><a href="#tabs-2" data-toggle="tab"><?php the_field('rubrik2'); ?> <i class="fa fa-angle-double-right"></i></a></li><?php endif; ?>
+                <?php if (get_field('rubrik3')): ?><li><a href="#tabs-3" data-toggle="tab"><?php the_field('rubrik3'); ?> <i class="fa fa-angle-double-right"></i></span></a></li><?php endif; ?>
+                <?php if (get_field('rubrik4')): ?><li><a href="#tabs-4" data-toggle="tab"><?php the_field('rubrik4'); ?> <i class="fa fa-angle-double-right"></i></a></li><?php endif; ?>
+                <?php if (get_field('rubrik5')): ?><li><a href="#tabs-5" data-toggle="tab"><?php the_field('rubrik5'); ?> <i class="fa fa-angle-double-right"></i></a></li><?php endif; ?>                
+              </ul>
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <?php if (get_field('rubrik1')): ?>
+                  <div id="tabs-1" class="tab-pane fade in active">
+                    <p><?php the_field('text1'); ?></p>
+                  </div>
+                <?php endif; ?>
+                <?php if (get_field('rubrik2')): ?>
+                  <div id="tabs-2" class="tab-pane fade">
+                    <p><?php the_field('text2'); ?></p>
+                  </div>
+                <?php endif; ?>
+                <?php if (get_field('rubrik3')): ?>
+                  <div id="tabs-3" class="tab-pane fade">
+                    <p><?php the_field('text3'); ?></p>
+                  </div>
+                <?php endif; ?>
+                <?php if (get_field('rubrik4')): ?>
+                  <div id="tabs-4" class="tab-pane fade">
+                    <p><?php the_field('text4'); ?></p>
+                  </div>
+                <?php endif; ?>
+                <?php if (get_field('rubrik5')): ?>
+                  <div id="tabs-5" class="tab-pane fade">
+                    <p><?php the_field('text5'); ?></p>
+                  </div>
+                <?php endif; ?>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="col-md-2" id="second-sidebar">
           <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar("sidebar_info")) : endif; ?>    
         </div>     
       </div>          
-      <div class="row top-buffer">
-        <div class="col-md-12">
-          <!-- Nav tabs -->
-          <ul class="nav nav-tabs">
-            <?php if (get_field('rubrik1')): ?><li  class="active"><a href="#tabs-1" data-toggle="tab"><?php the_field('rubrik1'); ?> <i class="fa fa-angle-double-right"></i></a></li><?php endif; ?>
-            <?php if (get_field('rubrik2')): ?><li><a href="#tabs-2" data-toggle="tab"><?php the_field('rubrik2'); ?> <i class="fa fa-angle-double-right"></i></a></li><?php endif; ?>
-            <?php if (get_field('rubrik3')): ?><li><a href="#tabs-3" data-toggle="tab"><?php the_field('rubrik3'); ?> <i class="fa fa-angle-double-right"></i></span></a></li><?php endif; ?>
-            <?php if (get_field('rubrik4')): ?><li><a href="#tabs-4" data-toggle="tab"><?php the_field('rubrik4'); ?> <i class="fa fa-angle-double-right"></i></a></li><?php endif; ?>
-            <?php if (get_field('rubrik5')): ?><li><a href="#tabs-5" data-toggle="tab"><?php the_field('rubrik5'); ?> <i class="fa fa-angle-double-right"></i></a></li><?php endif; ?>                
-          </ul>
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <?php if (get_field('rubrik1')): ?>
-              <div id="tabs-1" class="tab-pane fade in active">
-                <p><?php the_field('text1'); ?></p>
-              </div>
-            <?php endif; ?>
-            <?php if (get_field('rubrik2')): ?>
-              <div id="tabs-2" class="tab-pane fade">
-                <p><?php the_field('text2'); ?></p>
-              </div>
-            <?php endif; ?>
-            <?php if (get_field('rubrik3')): ?>
-              <div id="tabs-3" class="tab-pane fade">
-                <p><?php the_field('text3'); ?></p>
-              </div>
-            <?php endif; ?>
-            <?php if (get_field('rubrik4')): ?>
-              <div id="tabs-4" class="tab-pane fade">
-                <p><?php the_field('text4'); ?></p>
-              </div>
-            <?php endif; ?>
-            <?php if (get_field('rubrik5')): ?>
-              <div id="tabs-5" class="tab-pane fade">
-                <p><?php the_field('text5'); ?></p>
-              </div>
-            <?php endif; ?>
-          </div>
-        </div>
-      </div>
       <?php
     endwhile;
   else:
