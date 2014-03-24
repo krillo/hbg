@@ -10,20 +10,20 @@ get_header();
 ?>
 <div class="container">
   <div class="row" id="">
-    <div class="col-md-3" id="nav-sidebar">
+    <div class="col-sm-3" id="nav-sidebar">
       <?php if (function_exists('rep_page_hierarchy')) rep_page_hierarchy(); ?>
     </div>    
     <?php
     if (have_posts()) : while (have_posts()) : the_post();
         ?>
-        <div class="col-md-7 rep-content">
+        <div class="col-sm-7 rep-content">
           <?php include "snippets/notice.php"; ?>
           <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <h1><?php the_title(); ?></h1>
             <?php the_content(); ?>
           </article>
           <div class="row top-buffer">
-            <div class="col-md-12">
+            <div class="col-sm-12">
               <!-- Nav tabs -->
               <ul class="nav nav-tabs">
                 <?php if (get_field('rubrik1')): ?><li  class="active"><a href="#tabs-1" data-toggle="tab"><?php the_field('rubrik1'); ?> <i class="fa fa-angle-double-right"></i></a></li><?php endif; ?>
@@ -63,7 +63,7 @@ get_header();
             </div>
           </div>
         </div>
-        <div class="col-md-2" id="second-sidebar">
+        <div class="col-sm-2" id="second-sidebar">
           <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar("sidebar_info")) : endif; ?>    
         </div>     
       </div>          

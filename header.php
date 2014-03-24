@@ -31,7 +31,7 @@
     <div id="hbg-top">
       <div class="container">
         <div class="row">
-          <form action="/" method="get" role="search" id="hbg-top-search" class="col-md-3">
+          <form action="/" method="get" role="search" id="hbg-top-search" class="col-sm-3">
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Ange sökord..." autocomplete="off" type="text" name="s">
               <span class="input-group-btn">

@@ -20,27 +20,27 @@ get_header();
 ?>
 <div class="container">
   <div class="row" id="">
-    <div class="col-md-3" id="nav-sidebar">
+    <div class="col-sm-3" id="nav-sidebar">
       <?php if (function_exists('rep_page_hierarchy')) rep_page_hierarchy(); ?>
     </div>  
     <?php
     if (have_posts()) : while (have_posts()) : the_post();
         ?>
-        <div class="col-md-7 rep-content">
+        <div class="col-sm-7 rep-content">
           <?php include "snippets/notice.php"; ?>
           <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <h1><?php the_title(); ?></h1>
             <?php the_content(); ?>
           </article>
         </div>        
-        <div class="col-md-2" id="second-sidebar">
+        <div class="col-sm-2" id="second-sidebar">
           <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar("sidebar_info")) : endif; ?>    
         </div> 
       </div> 
       <?php if ($grid != 0): ?>
         <div class="row top-buffer" id="column-container">
           <?php if (get_field('rubrik1')): ?>
-            <div class="col-md-<?php echo $grid; ?>">
+            <div class="col-sm-<?php echo $grid; ?>">
               <div class="rep-column" id="col1">
                 <h2 class="rep-col-heding"><i class="fa fa-rocket"></i> <?php the_field('rubrik1'); ?></h2>
                 <p><?php the_field('text1'); ?></p>
@@ -52,7 +52,7 @@ get_header();
             </div>  
           <?php endif; ?>
       <?php if (get_field('rubrik2')): ?>
-            <div class="col-md-<?php echo $grid; ?>">
+            <div class="col-sm-<?php echo $grid; ?>">
               <div class="rep-column" id="col2">
                 <h2 class="rep-col-heding"><i class="fa fa-rocket"></i> <?php the_field('rubrik2'); ?></h2>
                 <p><?php the_field('text2'); ?></p>
@@ -64,7 +64,7 @@ get_header();
             </div>    
       <?php endif; ?>
       <?php if (get_field('rubrik3')): ?>
-            <div class="col-md-<?php echo $grid; ?>">
+            <div class="col-sm-<?php echo $grid; ?>">
               <div class="rep-column" id="col3">
                 <h2 class="rep-col-heding"><i class="fa fa-rocket"></i> <?php the_field('rubrik3'); ?></h2>
                 <p><?php the_field('text3'); ?></p>
@@ -76,7 +76,7 @@ get_header();
             </div>
       <?php endif; ?>
       <?php if (get_field('rubrik4')): ?>
-            <div class="col-md-<?php echo $grid; ?>">
+            <div class="col-sm-<?php echo $grid; ?>">
               <div class="rep-column" id="col4">
                 <h2 class="rep-col-heding"><i class="fa fa-rocket"></i> <?php the_field('rubrik4'); ?></h2>
                 <p><?php the_field('text4'); ?></p>
