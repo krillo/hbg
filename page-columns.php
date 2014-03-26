@@ -28,10 +28,14 @@ get_header();
         ?>
         <div class="col-sm-7 rep-content">
           <?php include "snippets/notice.php"; ?>
-          <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+          <article id="post-<?php the_ID(); ?>" <?php post_class("rep-article"); ?>>
             <h1><?php the_title(); ?></h1>
             <?php the_content(); ?>
           </article>
+          <div class="rep-updated">
+            <span>Senast uppdaterad: </span>  <?php the_modified_date(); ?><br/>
+            <span>Sidansvarig: </span>  <?php the_field('sidansvarig'); ?><br/>
+          </div>          
         </div>        
         <div class="col-sm-2" id="second-sidebar">
           <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar("sidebar_info")) : endif; ?>    

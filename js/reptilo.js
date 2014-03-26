@@ -20,11 +20,12 @@ jQuery(document).ready(function($) {
   function init() {
     $(".rep-tooltip").tooltip();
     $('input, textarea').placeholder();
+    rep_page_hierarchy();
   }
 
 
 
-  
+
   /**
    * Catch event - expand list in the rep-page-hierarchy navigation
    * Part of rep-page-hierarchy functionality
@@ -32,9 +33,51 @@ jQuery(document).ready(function($) {
   $(".rep-caret").click(function() {
     var postId = $(this).attr("data");
     var ulId = '#rep-children-to-' + postId;
-    //$('.rep-top-children').hide('slow');
     $(ulId).toggle('slow');
   });
+
+
+  function rep_page_hierarchy() {
+    $(".page_item_has_children ul").hide();
+    $(".page_item_has_children.current_page_ancestor ul").show();
+//  $(".page_item_has_children").prepend('<i class="fa fa-caret-down rep-caret-extra rep-closed" style="float:right;"></i>');
+
+
+    $(".page_item_has_children").prepend('<i class="fa fa-caret-right rep-caret-extra rep-closed" style="float:right;"></i>');
+  }
+
+
+
+
+  $(".rep-caret-extra").click(function() {
+    if ($(this).hasClass('rep-open')) {
+      $(this).addClass('rep-closed');
+      $(this).removeClass('rep-open');
+      $(this).toggleClass("fa-caret-down fa-caret-right");
+      $a = $(this).next();
+      $ul = $a.next();
+      $ul.hide('slow');
+    } else {
+      $(this).addClass('rep-open');
+      $(this).removeClass('rep-closed');
+      $(this).toggleClass("fa-caret-down fa-caret-right");
+      $a = $(this).next();
+      $ul = $a.next();
+      $ul.show('slow');
+
+
+    }
+
+
+    /*    
+     var postId = $(this).attr("data");
+     var ulId = '#rep-children-to-' + postId;
+     //$('.rep-top-children').hide('slow');
+     $(ulId).toggle('slow');
+     */
+  });
+
+
 
 
 });

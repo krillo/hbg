@@ -18,6 +18,7 @@ add_action('wp_enqueue_scripts', 'reptilo_scripts');
  * Enqueue some java scripts, only on front page
  */
 function reptilo_scripts() {
+  
 }
 
 /**
@@ -182,6 +183,10 @@ function bootstrap3_pagination($query = null) {
   endif;
 }
 
+
+
+
+
 /**
  * This function echoes a hiearchical tree menu suited for intranets.
  * A chunk of javascript is in the reptilo.js
@@ -237,11 +242,11 @@ function rep_page_hierarchy() {
     }
     $out .= '<div class="rep-forefather page-id-' . $page->ID . $div_class . '">';
     $out .= '<a href="' . get_permalink($page->ID) . '" class="' . $a_class . '">' . $page->post_title . '</a>';
-    $out .= $caret ? '<i class="fa fa-caret-down rep-caret" style="float:right;" data="' . $page->ID . '"></i>' : '';
+    $out .= $caret ? '<i class="fa fa-caret-right rep-caret" style="float:right;" data="' . $page->ID . '"></i>' : '';
     $out .= $ul;
     $out .= '</div>';
   }
-  $out .= '<div class="rep-forefather"><a href="/faq/" class="'.$faqstyle.'">FAQ</a></div>';
+  $out .= '<div class="rep-forefather"><a href="/faq/" class="' . $faqstyle . '">FAQ</a></div>';
   $out .= '</div>';
   echo $out;
 }
